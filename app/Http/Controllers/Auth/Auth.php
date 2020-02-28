@@ -18,11 +18,11 @@ class Auth extends Controller
     }
 
     public function redirectToProvider(){
-        return Socialite::driver('github')->stateless()->redirect();
+        return Socialite::driver('octopusx')->stateless()->redirect();
     }
 
     public function handleProviderCallback(){
-        $user = Socialite::driver('github')->stateless()->user();
+        $user = Socialite::driver('octopusx')->stateless()->user();
 
         return response()->json($user, 200);
 
