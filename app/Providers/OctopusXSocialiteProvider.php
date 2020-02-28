@@ -54,7 +54,7 @@ class OctopusXSocialiteProvider extends AbstractProvider implements ProviderInte
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://auth.octopusx.io/v1/me', [
+        $response = $this->getHttpClient()->get('https://auth.octopusx.io/user/get', [
             'headers' => [
                 'Authorization' => 'Bearer ' . $token,
             ],
@@ -78,9 +78,9 @@ class OctopusXSocialiteProvider extends AbstractProvider implements ProviderInte
     {
         return (new User)->setRaw($user)->map([
             'id'       => $user['id'],
-            'nickname' => $user['display_name'],
-            'name'     => $user['display_name'],
-            'avatar'   => !empty($user['images']) ? $user['images'][0]['url'] : null,
+//            'nickname' => $user['display_name'],
+            'name'     => $user['username'],
+//            'avatar'   => !empty($user['images']) ? $user['images'][0]['url'] : null,
         ]);
     }
 

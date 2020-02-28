@@ -21,5 +21,12 @@ return [
     ],
 
 
+    'octopux' =>[
+        'client_id' => env('OCTOPUSX'),
+        'client_secret' => env('OCTOPUSX_CLIENT_SECRET'),
+         'redirect' => 'http://localhost:8001/authorize/callback',
+    ]
+
+
 
 ];

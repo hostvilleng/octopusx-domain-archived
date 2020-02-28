@@ -15,4 +15,15 @@ class AppServiceProvider extends ServiceProvider
     {
 
     }
+
+    private function bootOctopusSocialite(){
+        $socialite = $this->app->make('Laravel\Socialite\Contracts\Factory');
+        $socialite->extend(
+            'octopusx',
+            function ($app) use ($socialite) {
+                $config = $app['config']['services.octopusx'];
+                return $socialite->buildProvider(OctopusXSocialiteProvider::class, $config);
+            }
+        );
+    }
 }
